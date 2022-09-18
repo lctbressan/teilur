@@ -15,23 +15,18 @@ import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Select;
-
-
 import java.awt.*;
 import java.awt.event.InputEvent;
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.stream.StreamSupport;
-
 import static com.braziltest.Utils.Config.PATHEVIDENCELINUX;
 import static com.braziltest.Utils.Config.PATHEVIDENCEWIN;
 import static org.junit.Assert.assertTrue;
 
 public class LoginPage extends BaseStep {
-
     public static int x = 0;
-
     public static void thatTheUserIsOnTheHomeScreen(String arg0) throws Exception {
         DriverFactory.getDriver(arg0);
     }
@@ -137,13 +132,6 @@ public class LoginPage extends BaseStep {
 
     }
 
-    public static void sendCredencialsAnd(String arg0, String arg1) throws IOException, InterruptedException {
-        Instrumentation.sendKeysWeb(Webdriver, Config.xpath, "//input[@name='user']", arg0, "Type User");
-        Instrumentation.sendKeysWeb(Webdriver, Config.xpath, "//input[@name='pass']", arg1, "Type Pass");
-        Instrumentation.clickWeb(Webdriver, Config.xpath, "//input[@name='commit']", "Confirm");
-    }
-
-
 
 
     public static void switchIframe(WebDriver driver ) throws IOException {
@@ -153,28 +141,6 @@ public class LoginPage extends BaseStep {
 
     }
 
-    public static void sendLoginandPass(String arg0, String arg1) throws IOException, InterruptedException {
-        Thread.sleep(1000);
-        Webdriver.switchTo().parentFrame();
-        Webdriver.switchTo().frame("basefrm");
-        //Webdriver.switchTo().frame("passWarning");
-        //Webdriver.switchTo().frame(0);
-        //Webdriver.switchTo().frame(Webdriver.findElement(By.id("basefrm")));
-        WebElement el = Webdriver.findElement(By.id("Loginuser"));
-        el.click();
-        Webdriver.findElement(By.id("Loginuser")).sendKeys(arg0);
-        Thread.sleep(2000);
-        WebElement el1 = Webdriver.findElement(By.id("LoginPassword"));
-        el1.click();
-        Webdriver.findElement(By.id("LoginPassword")).sendKeys(arg1);
-        Instrumentation.clickWeb(Webdriver, Config.xpath, "/html/body/div/div/div[1]/form/div/table/tbody/tr[6]/td/input[2]", "");
-        //Instrumentation.sendKeysWeb(Webdriver,Config.xpath,"/html/body/div/div/div[1]/form/div/table/tbody/tr[2]/td[2]/input",arg0,"");
-        //Instrumentation.sendKeysWeb(Webdriver,Config.id,"Loginuser",arg0,"");
-        //Instrumentation.sendKeysWeb(Webdriver,Config.id,"LoginPassword",arg1,"");
-        //Instrumentation.clickWeb(Webdriver,Config.xpath,"//*[contains(text(),'LOGIN')]","");
-        //Instrumentation.clickOnElementNotInteractWithContainsText(Webdriver,Config.className,"","setupWifiTable","");
-
-    }
 
 
     public static void ClicksOnAddButton(WebDriver driver) throws IOException {

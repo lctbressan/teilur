@@ -25,10 +25,6 @@ import static com.braziltest.utils.ProcessBuilderRun.processCommand;
 
 public class LoginSteps extends BaseStep {
 
-
-    Config cons = new Config();
-
-
     @Given("^that the user is on the home screen \"([^\"]*)\"$")
     public void thatTheUserIsOnTheHomeScreen(String arg0) throws Exception {
         LoginPage.thatTheUserIsOnTheHomeScreen(arg0);
@@ -39,8 +35,6 @@ public class LoginSteps extends BaseStep {
         LoginPage.validateResult(type,arg0,Result);
     }
 
-
-
     @And("Click Login")
     public void clickLogin() {
     }
@@ -50,12 +44,10 @@ public class LoginSteps extends BaseStep {
         LoginPage.SendCredentials(arg0,arg1);
     }
 
-
     @After
     public void teardownSteps() throws Exception {
         Webdriver.quit();
     }
-
 
     @And("test checks and unchecks checkboxes \"([^\"]*)\"$")
     public void checkCheckboxes(String arg0) {
