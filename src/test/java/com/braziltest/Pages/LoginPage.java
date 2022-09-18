@@ -228,6 +228,10 @@ public class LoginPage extends BaseStep {
     }
 
     public static void testClicksOnTheClickHereLink(WebDriver driver ) throws IOException, InterruptedException {
-        Instrumentation.ClickLink(driver,"1");
+        Instrumentation.ClickLink(driver,"1","");
+    }
+
+    public static void testClicksOnTheClickHereLinkAMultipleTimes(WebDriver driver,String arg0) throws IOException, InterruptedException {
+        Instrumentation.ClickLink(driver,"2",arg0);
     }
 }

@@ -327,18 +327,27 @@ public class Instrumentation {
 
     }
 
-    public static void ClickLink(WebDriver driver, String arg0) throws IOException, InterruptedException {
+    public static void ClickLink(WebDriver driver, String arg0,String Result) throws IOException, InterruptedException {
         By locatorA = null;
         if(arg0.equals("1")) {
             locatorA= By.xpath("//*[contains(text(),'Click Here')]");
         }
+        if(arg0.equals("2")) {
+            locatorA= By.xpath("//*[@id='content']/div/p/a");
+        }
+
         WebDriverWait wait = new WebDriverWait(driver, 5);
         wait.until(ExpectedConditions.presenceOfElementLocated(locatorA));
         WebElement element = driver.findElement(locatorA);
         element.click();
 
-
-
-
+        if(arg0.equals("2")) {
+            String Ret3 = Instrumentation.getVariantTextOnScreen(driver, Config.xpath, Result);
+            if (Ret3.contains(Result)) {
+                Assert.assertEquals("VALIDATION", Result, Ret3);
+            } else {
+                ClickLink(driver,arg0,Result);
+            }
+        }
     }
 }//--->

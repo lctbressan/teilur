@@ -12,10 +12,7 @@ import org.junit.runner.RunWith;
         glue = {"com.braziltest.Steps"},
         features = {"src/test/resources/features/"},
         plugin = {"com.vimalselvam.cucumber.listener.ExtentCucumberFormatter:", "json:target/cucumber.json", "html:target/cucumber-report", "junit:target/junit.xml"},
-        //tags={"@Test"},
-
-        tags={"@windows"},
-
+        tags={"@Test"},
         strict = true,
         snippets = SnippetType.CAMELCASE)
 public  class Runner extends Hook {

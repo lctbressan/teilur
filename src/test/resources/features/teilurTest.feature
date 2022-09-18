@@ -169,10 +169,25 @@
 
 
     @Test @windows
-    Scenario Outline: TS:["<TS>"] - [ 17 windows  ]  - "<Scenario>" - "<Description>"
+    Scenario Outline: TS:["<TS>"] - [ 17 Open in New Tab  ]  - "<Scenario>" - "<Description>"
       Given that the user is on the home screen "<HomePage>"
       And Test clicks on the Click Here link
       And validate result "<type>" "<status>" "<result>"
       Examples:
         | TS  | Scenario | Description            |HomePage                         |type |status    |result        |
-        | 001 |    0001  | JavaScript Error       |http://10.10.0.25:7080/windows   |NW   |          |New Window  |
+        | 001 |    0001  | Open in New Tab       |http://10.10.0.25:7080/windows   |NW   |          |New Window  |
+
+
+    @Test @Notification
+    Scenario Outline: TS:["<TS>"] - [ 18 Notification   ]  - "<Scenario>" - "<Description>"
+      Given that the user is on the home screen "<HomePage>"
+      And Test Click Here link a multiple times "<result>"
+      And validate result "<type>" "<status>" "<result>"
+      Examples:
+        | TS  | Scenario | Description            |HomePage                                                 |type |status    |result        |
+        | 001 |    0001  | Notification Message    |http://10.10.0.25:7080/notification_message_rendered    |NW   |          |Action successful|
+        | 001 |    0002  | Notification Message    |http://10.10.0.25:7080/notification_message_rendered    |NW   |          |Action unsuccesful, please try again|
+        #| 001 |    0003  | Notification Message    |http://10.10.0.25:7080/notification_message_rendered    |NW   |          |Action Unsuccessful|
+
+
+

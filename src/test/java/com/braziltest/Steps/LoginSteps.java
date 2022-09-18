@@ -148,4 +148,9 @@ public class LoginSteps extends BaseStep {
     public void testClicksOnTheClickHereLink() throws IOException, InterruptedException {
         LoginPage.testClicksOnTheClickHereLink(Webdriver);
     }
+
+    @And("Test Click Here link a multiple times \"([^\"]*)\"$")
+    public void testClicksOnTheClickHereLinkAMultipleTimes(String arg0) throws IOException, InterruptedException {
+        LoginPage.testClicksOnTheClickHereLinkAMultipleTimes(Webdriver,arg0);
+    }
 }
