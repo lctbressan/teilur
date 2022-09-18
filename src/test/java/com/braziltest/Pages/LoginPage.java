@@ -10,6 +10,9 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.logging.LogEntries;
+import org.openqa.selenium.logging.LogEntry;
+import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Select;
 
@@ -18,6 +21,8 @@ import java.awt.*;
 import java.awt.event.InputEvent;
 import java.io.File;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.stream.StreamSupport;
 
 import static com.braziltest.Utils.Config.PATHEVIDENCELINUX;
 import static com.braziltest.Utils.Config.PATHEVIDENCEWIN;
@@ -200,5 +205,19 @@ public class LoginPage extends BaseStep {
 
 
 
+    }
+
+    public static void testFindsTheJavaScriptErrorOnThePage(WebDriver driver, String arg0) {
+        LogEntries logs = driver.manage().logs().get(LogType.BROWSER);
+        String ret="";
+        for (LogEntry lgs : logs){
+            ret = lgs.getMessage();
+            if(ret.contains(arg0))
+            {
+                System.out.println(lgs.getMessage());
+                Assert.assertTrue(true);
+            }
+
+        }
     }
 }

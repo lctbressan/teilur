@@ -138,4 +138,9 @@ public class LoginSteps extends BaseStep {
     public void testClicksOnJSAlertButton(String arg0) throws IOException {
         LoginPage.ClicksOnJSAlertButton(Webdriver,arg0);
     }
+
+    @And("Test finds the JavaScript error on the page \"([^\"]*)\"$")
+    public void testFindsTheJavaScriptErrorOnThePage(String arg0) {
+        LoginPage.testFindsTheJavaScriptErrorOnThePage(Webdriver,arg0);
+    }
 }

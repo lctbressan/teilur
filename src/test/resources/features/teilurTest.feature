@@ -157,3 +157,12 @@
         | 001 |    0001  | JavaScript Alerts      |http://10.10.0.25:7080/javascript_alerts  |JS1     |I am a JS Alert    |     1|You successfuly clicked an alert  |
         | 001 |    0001  | JavaScript Alerts      |http://10.10.0.25:7080/javascript_alerts  |JS1     |I am a JS Confirm  |     2|You clicked: Ok                   |
         | 001 |    0001  | JavaScript Alerts      |http://10.10.0.25:7080/javascript_alerts  |JS1     |I am a JS prompt   |     3|You entered: TESTE 123            |
+
+
+    @Test @JavaScriptError
+    Scenario Outline: TS:["<TS>"] - [ 16 JavaScript Error ]  - "<Scenario>" - "<Description>"
+      Given that the user is on the home screen "<HomePage>"
+      And Test finds the JavaScript error on the page "<result>"
+      Examples:
+        | TS  | Scenario | Description            |HomePage                                 |type |status    |result        |
+        | 001 |    0001  | JavaScript Error       |http://10.10.0.25:7080/javascript_error  |     |          |reading 'xyz'  |
