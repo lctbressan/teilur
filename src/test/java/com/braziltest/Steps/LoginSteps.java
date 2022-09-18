@@ -34,9 +34,9 @@ public class LoginSteps extends BaseStep {
         LoginPage.thatTheUserIsOnTheHomeScreen(arg0);
     }
 
-    @And("validate result \"([^\"]*)\" \"([^\"]*)\"$")
-    public void validateResult(String type, String arg0) throws Exception {
-        LoginPage.validateResult(type,arg0);
+    @And("validate result \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+    public void validateResult(String type, String arg0,String Result) throws Exception {
+        LoginPage.validateResult(type,arg0,Result);
     }
 
 
@@ -132,5 +132,10 @@ public class LoginSteps extends BaseStep {
     @And("Test does a mouse hover on each image \"([^\"]*)\"$")
     public void testDoesAMouseHoverOnEachImage(String arg0) {
         LoginPage.mouseHover(Webdriver,arg0);
+    }
+
+    @And("Test Clicks on JS Alert Button \"([^\"]*)\"$")
+    public void testClicksOnJSAlertButton(String arg0) throws IOException {
+        LoginPage.ClicksOnJSAlertButton(Webdriver,arg0);
     }
 }

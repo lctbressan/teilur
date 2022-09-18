@@ -70,7 +70,7 @@ public class LoginPage extends BaseStep {
 
     }
 
-    public static void validateResult(String type,String arg0) throws Exception {
+    public static void validateResult(String type,String arg0,String Result) throws Exception {
         File f = null;
         if(type.equals("LOGIN")) {
             String Ret3 = Instrumentation.getVariantTextOnScreen(Webdriver, Config.xpath, arg0);
@@ -106,6 +106,17 @@ public class LoginPage extends BaseStep {
                 Assert.assertTrue(true);
             }else{
                 Assert.assertFalse(true);
+            }
+        }
+        if(type.equals("JS1")) {
+            String Res = Webdriver.switchTo().alert().getText();
+            Webdriver.switchTo().alert().accept();
+            Assert.assertEquals("This is a popup window", arg0, Res);
+            String Ret3 = Instrumentation.getVariantTextOnScreen(Webdriver, Config.xpath, Result);
+            if (Ret3.contains(Result)) {
+                Assert.assertEquals("VALIDATION", Result, Ret3);
+            } else {
+                Assert.assertTrue(false);
             }
         }
 
@@ -182,5 +193,12 @@ public class LoginPage extends BaseStep {
 
     public static void mouseHover(WebDriver driver,String arg0) {
         Instrumentation.mouseHover(Webdriver,arg0);
+    }
+
+    public static void ClicksOnJSAlertButton(WebDriver driver,String arg0) throws IOException {
+        Instrumentation.ClicksOnJSAlertButton(Webdriver,arg0);
+
+
+
     }
 }

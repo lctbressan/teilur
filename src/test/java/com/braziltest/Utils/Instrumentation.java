@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import static com.braziltest.Utils.Config.TIMEOUTAUTOMATION;
@@ -190,7 +191,7 @@ public class Instrumentation {
         List<WebElement> listElement = null;
         WebDriverWait wait = new WebDriverWait(driver,30);
         if(type.equals(Config.xpath)) {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'" + Text + "')]")));
+            //wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'" + Text + "')]")));
              listElement = driver.findElements(By.xpath("//*[contains(text(),'" + Text + "')]"));
         }
         if(type.equals(Config.id)){
@@ -300,5 +301,29 @@ public class Instrumentation {
         WebElement ele = driver.findElement(locatorA);
         Actions action = new Actions(driver);
         action.moveToElement(ele).perform();
+    }
+
+    public static void ClicksOnJSAlertButton(WebDriver driver, String arg0) {
+        By locatorA = null;
+        if(arg0.equals("1")) {
+            locatorA= By.xpath("//*[@id='content']/div/ul/li[1]/button");
+        }
+        if(arg0.equals("2")) {
+            locatorA= By.xpath("//*[@id='content']/div/ul/li[2]/button");
+        }
+        if(arg0.equals("3")) {
+            locatorA= By.xpath("//*[@id='content']/div/ul/li[3]/button");
+        }
+
+        WebDriverWait wait = new WebDriverWait(driver, 5);
+        wait.until(ExpectedConditions.presenceOfElementLocated(locatorA));
+        WebElement element = driver.findElement(locatorA);
+        element.click();
+
+        if(arg0.equals("3")) {
+            driver.switchTo().alert().sendKeys("TESTE 123");
+        }
+
+
     }
 }//--->
