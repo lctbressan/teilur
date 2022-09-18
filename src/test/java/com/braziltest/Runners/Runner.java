@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
         plugin = {"com.vimalselvam.cucumber.listener.ExtentCucumberFormatter:", "json:target/cucumber.json", "html:target/cucumber-report", "junit:target/junit.xml"},
         //tags={"@Test"},
 
-        tags={"@JavaScriptError"},
+        tags={"@windows"},
 
         strict = true,
         snippets = SnippetType.CAMELCASE)

@@ -143,4 +143,9 @@ public class LoginSteps extends BaseStep {
     public void testFindsTheJavaScriptErrorOnThePage(String arg0) {
         LoginPage.testFindsTheJavaScriptErrorOnThePage(Webdriver,arg0);
     }
+
+    @And("Test clicks on the Click Here link")
+    public void testClicksOnTheClickHereLink() throws IOException, InterruptedException {
+        LoginPage.testClicksOnTheClickHereLink(Webdriver);
+    }
 }

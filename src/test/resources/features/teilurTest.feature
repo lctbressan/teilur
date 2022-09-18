@@ -166,3 +166,13 @@
       Examples:
         | TS  | Scenario | Description            |HomePage                                 |type |status    |result        |
         | 001 |    0001  | JavaScript Error       |http://10.10.0.25:7080/javascript_error  |     |          |reading 'xyz'  |
+
+
+    @Test @windows
+    Scenario Outline: TS:["<TS>"] - [ 17 windows  ]  - "<Scenario>" - "<Description>"
+      Given that the user is on the home screen "<HomePage>"
+      And Test clicks on the Click Here link
+      And validate result "<type>" "<status>" "<result>"
+      Examples:
+        | TS  | Scenario | Description            |HomePage                         |type |status    |result        |
+        | 001 |    0001  | JavaScript Error       |http://10.10.0.25:7080/windows   |NW   |          |New Window  |

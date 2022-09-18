@@ -326,4 +326,19 @@ public class Instrumentation {
 
 
     }
+
+    public static void ClickLink(WebDriver driver, String arg0) throws IOException, InterruptedException {
+        By locatorA = null;
+        if(arg0.equals("1")) {
+            locatorA= By.xpath("//*[contains(text(),'Click Here')]");
+        }
+        WebDriverWait wait = new WebDriverWait(driver, 5);
+        wait.until(ExpectedConditions.presenceOfElementLocated(locatorA));
+        WebElement element = driver.findElement(locatorA);
+        element.click();
+
+
+
+
+    }
 }//--->

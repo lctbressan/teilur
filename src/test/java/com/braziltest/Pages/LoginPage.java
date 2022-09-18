@@ -125,6 +125,16 @@ public class LoginPage extends BaseStep {
             }
         }
 
+        if(type.equals("NW")) {
+            for (String winHandle : Webdriver.getWindowHandles()) {
+                Webdriver.switchTo().window(winHandle);
+            }
+            String Ret3 = Instrumentation.getVariantTextOnScreen(Webdriver, Config.xpath, Result);
+            if (Ret3.contains(arg0)) {
+                Assert.assertTrue(true);
+            }
+        }
+
     }
 
     public static void sendCredencialsAnd(String arg0, String arg1) throws IOException, InterruptedException {
@@ -202,9 +212,6 @@ public class LoginPage extends BaseStep {
 
     public static void ClicksOnJSAlertButton(WebDriver driver,String arg0) throws IOException {
         Instrumentation.ClicksOnJSAlertButton(Webdriver,arg0);
-
-
-
     }
 
     public static void testFindsTheJavaScriptErrorOnThePage(WebDriver driver, String arg0) {
@@ -217,7 +224,10 @@ public class LoginPage extends BaseStep {
                 System.out.println(lgs.getMessage());
                 Assert.assertTrue(true);
             }
-
         }
+    }
+
+    public static void testClicksOnTheClickHereLink(WebDriver driver ) throws IOException, InterruptedException {
+        Instrumentation.ClickLink(driver,"1");
     }
 }
