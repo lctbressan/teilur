@@ -128,4 +128,9 @@ public class LoginSteps extends BaseStep {
     public void testSwitchToIframe() throws IOException {
         LoginPage.switchIframe(Webdriver);
     }
+
+    @And("Test does a mouse hover on each image \"([^\"]*)\"$")
+    public void testDoesAMouseHoverOnEachImage(String arg0) {
+        LoginPage.mouseHover(Webdriver,arg0);
+    }
 }

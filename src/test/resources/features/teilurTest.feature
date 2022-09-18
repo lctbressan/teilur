@@ -133,3 +133,15 @@
       Examples:
         | TS  | Scenario | Description          |HomePage                 |type    |status           |
         | 002 |    0001  | test Iframe     |http://10.10.0.25:7080/iframe |LOGIN   |SOME TEXT        |
+
+
+    @Test @MouseHover
+    Scenario Outline: TS:["<TS>"] - [ 14 Mouse Hover ]  - "<Scenario>" - "<Description>"
+      Given that the user is on the home screen "<HomePage>"
+      And Test does a mouse hover on each image "<image>"
+      And validate result "<type>" "<status>"
+      Examples:
+        | TS  | Scenario | Description          |HomePage                  |type    |status             |image|
+        | 002 |    0001  | test Iframe     |http://10.10.0.25:7080/hovers  |LOGIN   |name: user1        |1    |
+        | 002 |    0001  | test Iframe     |http://10.10.0.25:7080/hovers  |LOGIN   |name: user2        |2    |
+        | 002 |    0001  | test Iframe     |http://10.10.0.25:7080/hovers  |LOGIN   |name: user3        |3    |

@@ -179,4 +179,8 @@ public class LoginPage extends BaseStep {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,250)", "");
     }
+
+    public static void mouseHover(WebDriver driver,String arg0) {
+        Instrumentation.mouseHover(Webdriver,arg0);
+    }
 }

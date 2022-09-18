@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -281,5 +282,23 @@ public class Instrumentation {
         WebElement uploadElement = driver.findElement(locatorA);
         uploadElement.sendKeys(File);
         driver.findElement(By.xpath("/html/body/div[2]/div/div[1]/form/input[2]")).click();
+    }
+
+    public static void mouseHover(WebDriver driver, String arg0) {
+        By locatorA = null;
+        if(arg0.equals("1")) {
+            locatorA= By.xpath("//*[@id='content']/div/div[1]/img");
+        }
+        if(arg0.equals("2")) {
+            locatorA= By.xpath("//*[@id='content']/div/div[2]/img");
+        }
+        if(arg0.equals("3")) {
+            locatorA= By.xpath("//*[@id='content']/div/div[3]/img");
+        }
+        WebDriverWait wait = new WebDriverWait(driver, 5);
+        wait.until(ExpectedConditions.presenceOfElementLocated(locatorA));
+        WebElement ele = driver.findElement(locatorA);
+        Actions action = new Actions(driver);
+        action.moveToElement(ele).perform();
     }
 }//--->
