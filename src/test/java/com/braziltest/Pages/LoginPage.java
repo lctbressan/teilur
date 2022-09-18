@@ -100,7 +100,7 @@ public class LoginPage extends BaseStep {
                f = new File("C:\\Users\\braziltest\\Downloads\\"+arg0);
             }
             if(System.getProperty("os.name").contains("Linux")){
-                f = new File("/home/bressan/downloads/"+arg0);
+                f = new File("/home/bressan/Downloads/"+arg0);
             }
             if(f.exists() && !f.isDirectory()) {
                 Assert.assertTrue(true);

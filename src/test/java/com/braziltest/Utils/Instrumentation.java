@@ -273,7 +273,7 @@ public class Instrumentation {
             File = "C:\\Users\\braziltest\\Downloads\\"+arg0;
         }
         if(System.getProperty("os.name").contains("Linux")){
-            File = "/home/bressan/downloads/"+arg0;
+            File = "/home/bressan/Downloads/"+arg0;
         }
         By locatorA = By.id("file-upload");
         WebDriverWait wait = new WebDriverWait(driver, 5);
