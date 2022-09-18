@@ -44,7 +44,7 @@
       Examples:
         | TS  | Scenario | Description                              |HomePage                              |type|
         | 002 |    0001  | Test right clicks on the context menu.   |https://jqueryui.com/resources/demos/droppable/default.html|0|
-        | 002 |    0002  | Test right clicks on the context menu.   |http://10.10.0.25:7080/drag_and_drop  |1 |
+        #| 002 |    0002  | Test right clicks on the context menu.   |http://10.10.0.25:7080/drag_and_drop  |1 |
 
 
 
